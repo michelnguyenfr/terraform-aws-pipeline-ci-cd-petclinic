@@ -1,3 +1,10 @@
+resource "aws_codebuild_source_credential" "github_cred" {
+  auth_type   = "PERSONAL_ACCESS_TOKEN"
+  server_type = "GITHUB"
+  token       = var.github_token
+}
+
+
 resource "aws_codebuild_project" "build" {
     count = length(var.service_name)
     name = "petclinic-${var.service_name[count.index]}-build"
@@ -38,12 +45,6 @@ resource "aws_codebuild_project" "build" {
     }
     
     service_role = var.build_role_arn
-}
-
-resource "aws_codebuild_source_credential" "github_cred" {
-  auth_type   = "PERSONAL_ACCESS_TOKEN"
-  server_type = "GITHUB"
-  token       = var.github_token
 }
 
 resource "aws_codebuild_webhook" "webhook" {
