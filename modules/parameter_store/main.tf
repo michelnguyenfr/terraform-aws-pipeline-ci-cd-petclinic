@@ -24,6 +24,6 @@ resource "aws_ssm_parameter" "secret_key" {
 
 resource "aws_ssm_parameter" "region" {
     name  = "PETCLINIC_REGION"
-    type  = "SecureString"
+    type  = "String"
     value = var.region
 }
