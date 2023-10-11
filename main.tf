@@ -21,8 +21,7 @@ module "roles" {
 module "parameter_store" {
   source = "./modules/parameter_store"
   cluster_name = var.cluster_name
-  docker_username = var.docker_username
-  docker_password = var.docker_password
+  docker_credentials = var.docker_credentials
   access_key = var.access_key
   secret_key = var.secret_key
   region = var.region
