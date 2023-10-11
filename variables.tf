@@ -8,6 +8,11 @@ variable "secret_key" {
     sensitive = true
 }
 
+variable "docker_credentials" {
+    type = string
+    sensitive = true
+}
+
 variable "github_token" {
     type = string
     sensitive = true
