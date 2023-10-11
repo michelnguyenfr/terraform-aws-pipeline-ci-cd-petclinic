@@ -2,8 +2,13 @@ resource "aws_codebuild_project" "build" {
     count = length(var.service_name)
     name = "petclinic-${var.service_name[count.index]}-build"
     source {
-        type = "GITHUB"
-        location = var.repo_source[count.index]
+      type = "GITHUB"
+      location = var.repo_source[count.index]
+      auth {
+        type        = "OAUTH"
+        resource    = "https://github.com"
+        "source_credential" = aws_codebuild_source_credential.github_cred.id
+      }
     }
 
     source_version = "refs/heads/master"
