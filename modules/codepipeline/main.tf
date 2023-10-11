@@ -22,7 +22,7 @@ resource "aws_codepipeline" "pipeline" {
         Owner             = var.pipelines[count.index].github_owner
         Repo              = var.pipelines[count.index].github_repo
         Branch            = var.pipelines[count.index].branch
-        OAuthToken        = var.github_token  # Replace with your GitHub OAuth token
+        OAuthToken        = var.github_token
         PollForSourceChanges = "true"
       }
 
