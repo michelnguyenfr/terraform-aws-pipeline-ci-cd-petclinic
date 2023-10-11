@@ -16,28 +16,28 @@ resource "aws_codebuild_project" "build" {
     source_version = "refs/heads/master"
     
     environment {
-        compute_type                = "BUILD_GENERAL1_SMALL"
-        image                       = "aws/codebuild/amazonlinux2-x86_64-standard:corretto11-23.07.28"
-        type                        = "LINUX_CONTAINER"
-        image_pull_credentials_type = "CODEBUILD"
-        privileged_mode             = true
+      compute_type                = "BUILD_GENERAL1_SMALL"
+      image                       = "aws/codebuild/amazonlinux2-x86_64-standard:corretto11-23.07.28"
+      type                        = "LINUX_CONTAINER"
+      image_pull_credentials_type = "CODEBUILD"
+      privileged_mode             = true
 
-        environment_variable {
-          name  = "REPOSITORY_PREFIX"
-          type  = "PLAINTEXT"
-          value = var.repository_prefix
-        }
+      environment_variable {
+        name  = "REPOSITORY_PREFIX"
+        type  = "PLAINTEXT"
+        value = var.repository_prefix
+      }
 
-        environment_variable {
-          name  = "DOCKER_CREDENTIALS"
-          type  = "PARAMETER_STORE"
-          value = "DOCKER_CREDENTIALS"
-        }
+      environment_variable {
+        name  = "DOCKER_CREDENTIALS"
+        type  = "PARAMETER_STORE"
+        value = "DOCKER_CREDENTIALS"
+      }
 
-        environment_variable {
+      environment_variable {
         name  = "GITHUB_TOKEN"
         value = var.github_token
-    }
+      }
     }
 
     artifacts {
