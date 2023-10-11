@@ -4,11 +4,6 @@ resource "aws_codebuild_project" "build" {
     source {
       type = "GITHUB"
       location = var.repo_source[count.index]
-      auth {
-        type        = "OAUTH"
-        resource    = "https://github.com"
-        source_credential = aws_codebuild_source_credential.github_cred.id
-      }
     }
 
     source_version = "refs/heads/master"
