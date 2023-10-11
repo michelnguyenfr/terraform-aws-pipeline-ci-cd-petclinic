@@ -1,7 +1,5 @@
-variable "cluster_name" {
-    type = string
-    default = "eks_cluster"
-}
+variable "cluster_name" { type = string }
+variable "region" { type = string }
 
 variable "docker_username" {
     type = string
@@ -23,7 +21,3 @@ variable "secret_key" {
     sensitive = true
 }
 
-variable "region" {
-    type = string
-    default = "eu-west-3"
-}
