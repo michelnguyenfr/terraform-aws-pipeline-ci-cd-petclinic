@@ -31,6 +31,11 @@ resource "aws_codebuild_project" "build" {
           type  = "PARAMETER_STORE"
           value = "DOCKER_CREDENTIALS"
         }
+
+        environment_variable {
+        name  = "GITHUB_TOKEN"
+        value = var.github_token
+    }
     }
 
     artifacts {
