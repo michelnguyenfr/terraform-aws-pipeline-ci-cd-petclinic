@@ -4,16 +4,10 @@ resource "aws_ssm_parameter" "cluster_name" {
     value = var.cluster_name
 }
 
-resource "aws_ssm_parameter" "docker_username" {
-    name  = "PETCLINIC_DOCKER_USERNAME"
+resource "aws_ssm_parameter" "docker_credentials" {
+    name  = "DOCKER_CREDENTIALS"
     type  = "SecureString"
-    value = var.docker_username
-}
-
-resource "aws_ssm_parameter" "docker_password" {
-    name  = "PETCLINIC_DOCKER_PASSWORD"
-    type  = "SecureString"
-    value = var.docker_password
+    value = var.docker_credentials
 }
 
 resource "aws_ssm_parameter" "access_key" {

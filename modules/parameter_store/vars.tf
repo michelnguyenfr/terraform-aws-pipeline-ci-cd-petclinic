@@ -1,12 +1,7 @@
 variable "cluster_name" { type = string }
 variable "region" { type = string }
 
-variable "docker_username" {
-    type = string
-    sensitive = true
-}
-
-variable "docker_password" {
+variable "docker_credentials" {
     type = string
     sensitive = true
 }
