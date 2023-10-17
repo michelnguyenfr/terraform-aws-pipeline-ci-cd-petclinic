@@ -42,7 +42,6 @@ variable "s3_bucket" {
 
 variable "service_role" {
     type = string
-    default = "arn:aws:iam::296615500438:role/service-role/AWSCodePipelineServiceRole-eu-west-3-petclinic-customers"
 }
 
 variable "github_token" { type = string }
