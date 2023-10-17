@@ -15,7 +15,8 @@ provider "aws" {
 
 module "roles" {
   source = "./modules/roles"
-  json_path = "./modules/roles/build-policy.json"
+  build_json_path = "./modules/roles/build-policy.json"
+  pipeline_json_path = "./modules/roles/pipeline-policy.json"
 }
 
 module "parameter_store" {
