@@ -5,7 +5,7 @@ resource "aws_codepipeline" "pipeline" {
   role_arn = var.pipeline_role_arn  # Replace with your CodePipeline role ARN
 
   artifact_store {
-    location = var.s3_bucket  # Replace with your S3 bucket name
+    location = aws_s3_bucket.dummy_bucket  # Replace with your S3 bucket name
     type     = "S3"
   }
 
@@ -94,5 +94,13 @@ resource "aws_codepipeline" "pipeline" {
 
       input_artifacts = ["BuildArtifact"]
     }
+  }
+}
+
+resource "aws_s3_bucket" "dummy_bucket" {
+  bucket = "petclinic_s3_bucket"
+
+  tags = {
+    Name        = "petclinic_b3_bucket"
   }
 }
