@@ -40,7 +40,7 @@ variable "s3_bucket" {
     default= "codepipeline-eu-west-3-775846151645"
 }
 
-variable "service_role" {
+variable "pipeline_role_arn" {
     type = string
 }
 

@@ -2,7 +2,7 @@ resource "aws_codepipeline" "pipeline" {
   count = length(var.pipelines)
 
   name = var.pipelines[count.index].name
-  role_arn = var.service_role  # Replace with your CodePipeline role ARN
+  role_arn = var.pipeline_role_arn  # Replace with your CodePipeline role ARN
 
   artifact_store {
     location = var.s3_bucket  # Replace with your S3 bucket name
