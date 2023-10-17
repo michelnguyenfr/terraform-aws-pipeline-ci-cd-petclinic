@@ -7,27 +7,6 @@ terraform {
   }
 }
 
-import {
-  to = aws_ssm_parameter.cluster_name
-  id = "PETCLINIC_EKS_CLUSTER_NAME"
-}
-import {
-  to = aws_ssm_parameter.docker_credentials
-  id = "DOCKER_CREDENTIALS"
-}
-import {
-  to = aws_ssm_parameter.access_key
-  id = "DOCKER_CREDENTIALS"
-}
-import {
-  to = aws_ssm_parameter.secret_key
-  id = "SECRET_ACCESS_KEY"
-}
-import {
-  to = aws_ssm_parameter.region
-  id = "PETCLINIC_REGION"
-}
-
 provider "aws" {
   region = "eu-west-3"
   access_key = var.access_key # la clé d’accès crée pour l'utilisateur qui sera utilisé par terraform
