@@ -98,10 +98,10 @@ resource "aws_codepipeline" "pipeline" {
 }
 
 resource "aws_s3_bucket" "dummy_bucket" {
-  bucket = "petclinic_s3_bucket"
+  bucket = "petclinic-s3-bucket"
   force_destroy = true
   
   tags = {
-    Name        = "petclinic_b3_bucket"
+    Name        = "petclinic-b3-bucket"
   }
 }
